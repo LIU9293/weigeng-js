@@ -25,7 +25,10 @@ class WeigengController {
 
     socket.on('error', err => {
       console.error(`[WeigengController] Lost UPD connection:\n${err.stack}.`)
+      console.log('[WeigengController] Will try to reconnect in 10s...')
       socket.close()
+
+      setTimeout(this.init, 10 * 1000)
     })
 
     socket.on('message', (msg, rinfo) => {
