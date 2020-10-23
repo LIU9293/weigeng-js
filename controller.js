@@ -103,7 +103,7 @@ class WeigengController {
   }
 
   openDoor (n) {
-    this.sendData(0x40, n)
+    this.broadcastData(0x40, n)
   }
 }
 
